@@ -104,25 +104,19 @@
     </section>
 
     <!-- ============================================================
-         TRAILER ONE — edge-to-edge, 21:9, poster until played
-    ============================================================= -->
-    <section class="film" id="trailer-one" aria-label="Wedding trailer, part one">
+         TRAILER ONE — Vimeo embed, responsive 16:9 player
+    ============================================================ -->
+    <section class="film film--vimeo" id="trailer-one" aria-label="Wedding trailer, part one">
       <div class="film__frame" data-reveal>
         <div class="film__video-wrap" data-video-wrap>
-          <video
-            class="film__video"
-            id="video1"
-            poster="assets/images/trailer-01-poster.jpg"
-            preload="none"
-            playsinline
-            controls
-            data-src="assets/videos/Radhika & Taj Trailer.mp4">
-            <source data-src="assets/videos/Radhika & Taj Trailer.mp4" type="video/mp4">
-            Your browser does not support embedded video. <a href="assets/videos/Radhika & Taj Trailer.mp4">Download the film</a>.
-          </video>
-          <button class="film__play" type="button" data-play-button aria-label="Play the wedding trailer">
-            <img src="assets/icons/play.svg" alt="" width="72" height="72">
-          </button>
+          <iframe
+            class="film__embed"
+            src="https://player.vimeo.com/video/1223938933?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+            frameborder="0"
+            allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            title="Radhika &amp; Taj Trailer"
+            allowfullscreen></iframe>
         </div>
       </div>
       <p class="film__caption" data-reveal>The Wedding Trailer — North Mymms Park, 20th June 2026</p>
@@ -280,6 +274,8 @@
     </section>
 
   </main>
+
+  <script src="https://player.vimeo.com/api/player.js"></script>
 
   <!-- ============================================================
        FOOTER
