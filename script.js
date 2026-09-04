@@ -189,7 +189,64 @@
   }
 
   /* ------------------------------------------------------------------
-     6. HERO SCROLL CUE
+     6. NEVER-SEEN PHOTO CAROUSEL
+     Native horizontal scrolling keeps touch interaction natural while
+     buttons, dots, and keyboard controls make the sequence accessible.
+  ------------------------------------------------------------------ */
+  function initNeverSeenCarousel() {
+    const carousel = document.querySelector("[data-carousel]");
+    if (!carousel) return;
+
+    const track = carousel.querySelector("[data-carousel-track]");
+    const slides = [...carousel.querySelectorAll(".never-seen__slide")];
+    const prev = carousel.querySelector("[data-carousel-prev]");
+    const next = carousel.querySelector("[data-carousel-next]");
+    const dots = carousel.querySelector("[data-carousel-dots]");
+    if (!track || !slides.length || !prev || !next || !dots) return;
+
+    let activeIndex = 0;
+    slides.forEach((_, index) => {
+      const dot = document.createElement("button");
+      dot.className = "never-seen__dot";
+      dot.type = "button";
+      dot.setAttribute("aria-label", `Show photograph ${index + 1}`);
+      dot.addEventListener("click", () => goTo(index));
+      dots.appendChild(dot);
+    });
+
+    const update = () => {
+      const dotButtons = dots.querySelectorAll("button");
+      dotButtons.forEach((dot, index) => dot.setAttribute("aria-current", String(index === activeIndex)));
+      prev.disabled = activeIndex === 0;
+      next.disabled = activeIndex === slides.length - 1;
+    };
+
+    const goTo = (index) => {
+      activeIndex = Math.max(0, Math.min(index, slides.length - 1));
+      slides[activeIndex].scrollIntoView({ behavior: reducedMotion ? "auto" : "smooth", block: "nearest", inline: "center" });
+      update();
+    };
+
+    prev.addEventListener("click", () => goTo(activeIndex - 1));
+    next.addEventListener("click", () => goTo(activeIndex + 1));
+    track.addEventListener("keydown", (event) => {
+      if (event.key === "ArrowLeft") goTo(activeIndex - 1);
+      if (event.key === "ArrowRight") goTo(activeIndex + 1);
+    });
+
+    const observer = new IntersectionObserver((entries) => {
+      const visible = entries.filter((entry) => entry.isIntersecting).sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+      if (visible) {
+        activeIndex = slides.indexOf(visible.target);
+        update();
+      }
+    }, { root: track, threshold: [0.6] });
+    slides.forEach((slide) => observer.observe(slide));
+    update();
+  }
+
+  /* ------------------------------------------------------------------
+     7. HERO SCROLL CUE
      Smooth-scrolls to the intro section on click/keyboard activation.
   ------------------------------------------------------------------ */
   function initScrollCue() {
@@ -202,7 +259,7 @@
   }
 
   /* ------------------------------------------------------------------
-     7. SUBTLE HERO PARALLAX
+      8. SUBTLE HERO PARALLAX
      Desktop-only, capped, and skipped entirely under reduced motion.
   ------------------------------------------------------------------ */
   function initParallax() {
@@ -230,7 +287,7 @@
   }
 
   /* ------------------------------------------------------------------
-     8. PREMIUM CURSOR RING
+      9. PREMIUM CURSOR RING
      Desktop-only decorative cursor that grows over interactive elements.
   ------------------------------------------------------------------ */
   function initCursor() {
@@ -271,6 +328,7 @@
     initHeader();
     initReveals();
     initFilmSections();
+    initNeverSeenCarousel();
     initScrollCue();
     initParallax();
     initCursor();
