@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Taj &amp; Radhika — 20 June 2026</title>
+  <meta name="description" content="A cinematic keepsake of Taj and Radhika's wedding — two films, and the photographs between them.">
+  <meta name="theme-color" content="#111111">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Taj &amp; Radhika — 20 June 2026">
+  <meta property="og:description" content="A cinematic keepsake of our wedding day.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/images/hero.jpg">
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
+
+  <!-- Fonts: preconnect then load only the weights actually used -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <!-- Preload the single most critical asset: the hero image -->
+  <link rel="preload" as="image" href="assets/images/hero.jpg">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Skip link for keyboard / screen reader users -->
+  <a class="skip-link" href="#trailer-one">Skip to content</a>
+
+  <!-- ============================================================
+       PRELOADER — thin line + monogram, fades once assets settle
+  ============================================================= -->
+  <div id="loader" class="loader" role="status" aria-live="polite">
+    <span class="loader__mark">T <span aria-hidden="true">×</span> R</span>
+    <span class="loader__line" aria-hidden="true"><span class="loader__line-fill"></span></span>
+    <span class="visually-hidden">Loading</span>
+  </div>
+
+  <!-- ============================================================
+       SCROLL PROGRESS — hairline on the page edge, not a scrollbar
+  ============================================================= -->
+  <div class="progress-rail" aria-hidden="true">
+    <div class="progress-rail__fill" id="progressFill"></div>
+  </div>
+
+  <!-- ============================================================
+       DYNAMIC HEADER — hidden over the hero, appears after it,
+       softens away again while a section is being read
+  ============================================================= -->
+  <header class="site-header" id="siteHeader" data-header>
+    <span class="site-header__mark">T×R</span>
+    <span class="site-header__date">20 · 06 · 2026</span>
+  </header>
+
+  <!-- Optional premium cursor ring — desktop only, purely decorative -->
+  <div class="cursor-ring" id="cursorRing" aria-hidden="true"></div>
+
+  <main id="main">
+
+    <!-- ============================================================
+         HERO — 100vh, full-bleed image, slow 20s scale, no clutter
+    ============================================================= -->
+    <section class="hero" id="hero" aria-label="Taj and Radhika, 20 June 2026">
+      <div class="hero__media">
+        <img
+          class="hero__image"
+          id="heroImage"
+          src="assets/images/hero.jpg"
+          alt="Taj and Radhika on their wedding day"
+          fetchpriority="high">
+        <div class="hero__vignette" aria-hidden="true"></div>
+        <div class="hero__grain" aria-hidden="true"></div>
+      </div>
+
+      <div class="hero__content">
+        <p class="hero__eyebrow">A wedding film &amp; keepsake</p>
+        <h1 class="hero__title">Taj <span class="hero__title-mark">×</span> Radhika</h1>
+        <p class="hero__date">20 June 2026</p>
+      </div>
+
+      <button class="hero__scroll" id="scrollCue" type="button" aria-label="Scroll to begin">
+        <span>Scroll to begin</span>
+        <img src="assets/icons/arrow-down.svg" alt="" width="16" height="26">
+      </button>
+    </section>
+
+    <!-- ============================================================
+         INTRO — quiet statement, huge serif type, nothing else
+    ============================================================= -->
+    <section class="intro" id="intro" aria-label="Introduction">
+      <p class="intro__line" data-reveal>
+        Two people.
+      </p>
+      <p class="intro__line" data-reveal>
+        One journey.
+      </p>
+      <p class="intro__line intro__line--accent" data-reveal>
+        Thousands of unforgettable moments.
+      </p>
+    </section>
+
+    <!-- ============================================================
+         TRAILER ONE — edge-to-edge, 21:9, poster until played
+    ============================================================= -->
+    <section class="film" id="trailer-one" aria-label="Wedding trailer, part one">
+      <div class="film__frame" data-reveal>
+        <div class="film__video-wrap" data-video-wrap>
+          <video
+            class="film__video"
+            id="video1"
+            poster="assets/images/trailer-01-poster.jpg"
+            preload="none"
+            playsinline
+            controls
+            data-src="assets/videos/Radhika & Taj Trailer.mp4">
+            <source data-src="assets/videos/Radhika & Taj Trailer.mp4" type="video/mp4">
+            Your browser does not support embedded video. <a href="assets/videos/Radhika & Taj Trailer.mp4">Download the film</a>.
+          </video>
+          <button class="film__play" type="button" data-play-button aria-label="Play the wedding trailer">
+            <img src="assets/icons/play.svg" alt="" width="72" height="72">
+          </button>
+        </div>
+      </div>
+      <p class="film__caption" data-reveal>The Wedding Trailer — North Mymms Park, 20th June 2026</p>
+    </section>
+
+    <!-- ============================================================
+         CINEMATIC BREAK — full-bleed image, one small quote
+    ============================================================= -->
+    <section class="break" id="break-one" aria-label="A quiet moment">
+      <img
+        class="break__image"
+        src="assets/images/cinematic-break.jpg"
+        alt=""
+        loading="lazy"
+        decoding="async">
+      <div class="break__overlay" aria-hidden="true"></div>
+      <blockquote class="break__quote" data-reveal>
+        <p>“It wasn't perfect.<br>It was ours.”</p>
+      </blockquote>
+    </section>
+
+    <!-- ============================================================
+         GALLERY I — editorial masonry, varied sizes, gentle reveal
+    ============================================================= -->
+    <section class="gallery" id="gallery-one" aria-label="Wedding photographs, part one">
+      <p class="gallery__eyebrow" data-reveal>Wedding Gallery — I</p>
+
+      <div class="gallery__grid">
+        <figure class="gallery__item gallery__item--tall" data-reveal>
+          <img src="assets/images/gallery/gallery-01.jpg" alt="" loading="lazy" decoding="async">
+        </figure>
+        <figure class="gallery__item gallery__item--wide" data-reveal>
+          <img src="assets/images/gallery/gallery-02.jpg" alt="" loading="lazy" decoding="async">
+        </figure>
+        <figure class="gallery__item" data-reveal>
+          <img src="assets/images/gallery/gallery-03.jpg" alt="" loading="lazy" decoding="async">
+        </figure>
+        <figure class="gallery__item gallery__item--wide" data-reveal>
+          <img src="assets/images/gallery/gallery-04.jpg" alt="" loading="lazy" decoding="async">
+        </figure>
+        <figure class="gallery__item gallery__item--tall" data-reveal>
+          <img src="assets/images/gallery/gallery-05.jpg" alt="" loading="lazy" decoding="async">
+        </figure>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         ALTERNATING EDITORIAL SPREAD — image / text / image rhythm
+    ============================================================= -->
+    <section class="spread" id="spread-one" aria-label="A story in portraits">
+
+      <div class="spread__row" data-reveal>
+        <div class="spread__image spread__image--large">
+          <img src="assets/images/portraits/portrait-01.jpg" alt="" loading="lazy" decoding="async">
+        </div>
+        <div class="spread__text">
+          <p class="spread__kicker">6:14 AM</p>
+          <p class="spread__body">Before the guests arrived, before the music started — just the two of us, and a city still waking up.</p>
+        </div>
+      </div>
+
+      <div class="spread__row spread__row--reverse" data-reveal>
+        <div class="spread__text">
+          <p class="spread__kicker">The Vows</p>
+          <p class="spread__body">Everything we meant to say, and everything we didn't need to.</p>
+        </div>
+        <div class="spread__image spread__image--large">
+          <img src="assets/images/portraits/portrait-02.jpg" alt="" loading="lazy" decoding="async">
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ============================================================
+         TRAILER TWO — same treatment, different atmosphere
+    ============================================================= -->
+    <section class="film film--dark" id="trailer-two" aria-label="Wedding trailer, part two">
+      <div class="film__frame" data-reveal>
+        <div class="film__video-wrap" data-video-wrap>
+          <video
+            class="film__video"
+            id="video2"
+            poster="assets/images/trailer-02-poster.jpg"
+            preload="none"
+            playsinline
+            controls
+            data-src="assets/videos/trailer-02.mp4">
+            <source data-src="assets/videos/trailer-02.mp4" type="video/mp4">
+            Your browser does not support embedded video. <a href="assets/videos/trailer-02.mp4">Download the film</a>.
+          </video>
+          <button class="film__play" type="button" data-play-button aria-label="Play the reception film">
+            <img src="assets/icons/play.svg" alt="" width="72" height="72">
+          </button>
+        </div>
+      </div>
+      <p class="film__caption" data-reveal>The Reception — North Mymms Park, June 2026</p>
+    </section>
+
+    <!-- ============================================================
+         GALLERY II — second editorial pass, different grid rhythm
+    ============================================================= -->
+    <section class="gallery" id="gallery-two" aria-label="Wedding photographs, part two">
+      <p class="gallery__eyebrow" data-reveal>Wedding Gallery — II</p>
+
+      <div class="gallery__grid gallery__grid--alt">
+        <figure class="gallery__item gallery__item--wide" data-reveal>
+          <img src="assets/images/gallery/gallery-06.jpg" alt="" loading="lazy" decoding="async">
+        </figure>
+        <figure class="gallery__item gallery__item--tall" data-reveal>
+          <img src="assets/images/gallery/gallery-07.jpg" alt="" loading="lazy" decoding="async">
+        </figure>
+        <figure class="gallery__item gallery__item--wide" data-reveal>
+          <img src="assets/images/gallery/gallery-08.jpg" alt="" loading="lazy" decoding="async">
+        </figure>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         FAVOURITE MOMENTS — staggered cards, not a slider
+    ============================================================= -->
+    <section class="moments" id="moments" aria-label="Favourite moments">
+      <p class="gallery__eyebrow" data-reveal>Favourite Moments</p>
+
+      <ul class="moments__list">
+        <li class="moments__item" data-reveal>
+          <img src="assets/images/gallery/moment-01.jpg" alt="" loading="lazy" decoding="async">
+          <p class="moments__caption">The first look</p>
+        </li>
+        <li class="moments__item moments__item--offset" data-reveal>
+          <img src="assets/images/gallery/moment-02.jpg" alt="" loading="lazy" decoding="async">
+          <p class="moments__caption">Her father's toast</p>
+        </li>
+        <li class="moments__item" data-reveal>
+          <img src="assets/images/gallery/moment-03.jpg" alt="" loading="lazy" decoding="async">
+          <p class="moments__caption">Midnight, dancing</p>
+        </li>
+        <li class="moments__item moments__item--offset" data-reveal>
+          <img src="assets/images/gallery/moment-04.jpg" alt="" loading="lazy" decoding="async">
+          <p class="moments__caption">The walk back</p>
+        </li>
+      </ul>
+    </section>
+
+    <!-- ============================================================
+         CLOSING — dark, minimal, the last word
+    ============================================================= -->
+    <section class="closing" id="closing" aria-label="Closing">
+      <img class="closing__image" src="assets/images/closing-bg.jpg" alt="" loading="lazy" decoding="async">
+      <div class="closing__overlay" aria-hidden="true"></div>
+      <div class="closing__content" data-reveal>
+        <p class="closing__title">Forever,<br>together.</p>
+        <p class="closing__subtitle">Thank you for sharing our journey.</p>
+        <p class="closing__signature">Taj &amp; Radhika</p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================================
+       FOOTER
+  ============================================================= -->
+  <footer class="site-footer">
+    <p>Taj &amp; Radhika · 20 June 2026 · Jaipur</p>
+    <p class="site-footer__made">Made with love, for us.</p>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
