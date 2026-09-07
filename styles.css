@@ -763,27 +763,74 @@ section { position: relative; }
   z-index: 2;
   text-align: center;
   color: var(--warm-white);
+  text-shadow: 0 2px 18px rgba(17,17,17,0.4);
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: var(--space-sm);
 }
-.closing__title { font-size: var(--fs-h1); font-weight: 500; }
-.closing__subtitle { font-family: var(--font-body); font-weight: 300; font-size: var(--fs-body-lg); opacity: 0.8; }
-.closing__signature { font-family: var(--font-display); font-style: italic; font-size: var(--fs-body-lg); color: var(--gold); margin-top: var(--space-xs); }
+.closing__title {
+  font-family: 'Cormorant Garamond', 'Iowan Old Style', Georgia, serif;
+  font-size: var(--fs-h1);
+  font-weight: 400;
+  line-height: 1;
+}
+.closing__subtitle {
+  font-family: var(--font-body);
+  font-size: var(--fs-small);
+  font-weight: 300;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.82;
+}
+.closing__signature {
+  font-family: 'Cormorant Garamond', 'Iowan Old Style', Georgia, serif;
+  font-size: clamp(1.5rem, 2vw, 2rem);
+  font-style: italic;
+  letter-spacing: 0.03em;
+  color: var(--gold);
+  margin-top: var(--space-xs);
+}
 
 .site-footer {
-  padding: var(--space-md) var(--container-pad);
+  position: relative;
+  padding: var(--space-lg) var(--container-pad) var(--space-md);
   background: var(--near-black);
-  color: rgba(251,250,248,0.55);
+  color: rgba(251,250,248,0.68);
   text-align: center;
   font-size: var(--fs-small);
-  letter-spacing: 0.05em;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
   display: flex;
   flex-direction: column;
-  gap: var(--space-3xs);
+  align-items: center;
+  gap: var(--space-xs);
 }
-.site-footer__made { font-style: italic; font-family: var(--font-display); color: var(--gold); opacity: 0.85; }
+.site-footer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: min(180px, 30vw);
+  height: 1px;
+  background: var(--gold);
+  transform: translateX(-50%);
+  opacity: 0.7;
+}
+.site-footer p:first-child {
+  font-size: var(--fs-eyebrow);
+  letter-spacing: 0.2em;
+  line-height: 1.5;
+}
+.site-footer__made {
+  font-family: var(--font-display);
+  font-size: var(--fs-body-lg);
+  font-style: italic;
+  letter-spacing: 0.02em;
+  text-transform: none;
+  color: var(--gold);
+  opacity: 0.9;
+}
 
 /* ---------- 17. REVEAL ANIMATION STATES ---------- */
 [data-reveal] {
