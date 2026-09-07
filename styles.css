@@ -386,6 +386,7 @@ section { position: relative; }
   gap: var(--space-sm);
 }
 .film--dark { background: var(--near-black); color: var(--warm-white); }
+.film--pictime { background: var(--charcoal); color: var(--gold); }
 
 .film__frame {
   width: 80vw;
@@ -413,13 +414,18 @@ section { position: relative; }
 }
 .film--vimeo .film__video-wrap { aspect-ratio: 16 / 9; }
 .film--pictime .film__video-wrap { aspect-ratio: 16 / 9; }
-.film--vimeo .film__video-wrap,
-.film--pictime .film__video-wrap { overflow: visible; }
+.film--vimeo .film__video-wrap { overflow: visible; }
 .film--pictime .film__frame { width: 64vw; }
+.film--pictime .film__video-wrap {
+  overflow: hidden;
+  background: var(--charcoal);
+}
 .film--pictime .film__caption {
   width: 64vw;
   max-width: 64vw;
   margin-inline: auto;
+  position: relative;
+  z-index: 1;
 }
 .film__video::-webkit-media-controls { opacity: 0; transition: opacity var(--dur-fast); }
 .film__video[data-playing="true"]::-webkit-media-controls { opacity: 1; }
