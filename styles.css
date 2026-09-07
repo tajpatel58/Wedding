@@ -388,8 +388,8 @@ section { position: relative; }
 .film--dark { background: var(--near-black); color: var(--warm-white); }
 
 .film__frame {
-  width: 100%;
-  max-width: 1800px;
+  width: 80vw;
+  max-width: 1680px;
   padding-inline: var(--space-sm);
 }
 .film__video-wrap {
@@ -413,6 +413,14 @@ section { position: relative; }
 }
 .film--vimeo .film__video-wrap { aspect-ratio: 16 / 9; }
 .film--pictime .film__video-wrap { aspect-ratio: 16 / 9; }
+.film--vimeo .film__video-wrap,
+.film--pictime .film__video-wrap { overflow: visible; }
+.film--pictime .film__frame { width: 64vw; }
+.film--pictime .film__caption {
+  width: 64vw;
+  max-width: 64vw;
+  margin-inline: auto;
+}
 .film__video::-webkit-media-controls { opacity: 0; transition: opacity var(--dur-fast); }
 .film__video[data-playing="true"]::-webkit-media-controls { opacity: 1; }
 
@@ -813,7 +821,9 @@ section { position: relative; }
   .intro { min-height: 50svh; padding: var(--space-lg) var(--space-sm); }
 
   .film { padding: var(--space-lg) 0; gap: var(--space-xs); }
-  .film__frame { padding-inline: var(--space-xs); }
+  .film__frame,
+  .film--pictime .film__frame { width: 100%; padding-inline: var(--space-xs); }
+  .film--pictime .film__caption { width: 100%; max-width: calc(100% - (2 * var(--container-pad))); }
   .film__video-wrap { aspect-ratio: 4 / 5; }
   .film--vimeo .film__video-wrap { aspect-ratio: 16 / 9; }
   .film--pictime .film__video-wrap { aspect-ratio: 16 / 9; }
