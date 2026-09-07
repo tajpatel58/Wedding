@@ -412,6 +412,7 @@ section { position: relative; }
   border: 0;
 }
 .film--vimeo .film__video-wrap { aspect-ratio: 16 / 9; }
+.film--pictime .film__video-wrap { aspect-ratio: 16 / 9; }
 .film__video::-webkit-media-controls { opacity: 0; transition: opacity var(--dur-fast); }
 .film__video[data-playing="true"]::-webkit-media-controls { opacity: 1; }
 
@@ -815,6 +816,7 @@ section { position: relative; }
   .film__frame { padding-inline: var(--space-xs); }
   .film__video-wrap { aspect-ratio: 4 / 5; }
   .film--vimeo .film__video-wrap { aspect-ratio: 16 / 9; }
+  .film--pictime .film__video-wrap { aspect-ratio: 16 / 9; }
   .film__play img { width: 56px; height: 56px; }
 
   .break { height: 70svh; }

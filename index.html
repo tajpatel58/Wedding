@@ -278,25 +278,19 @@
     </section>
 
     <!-- ============================================================
-         TRAILER TWO — same treatment, different atmosphere
+         TRAILER TWO — Pic-Time reception gallery
     ============================================================= -->
-    <section class="film film--dark" id="trailer-two" aria-label="Wedding trailer, part two">
+    <section class="film film--dark film--pictime" id="trailer-two" aria-label="Wedding reception photographs">
       <div class="film__frame" data-reveal>
         <div class="film__video-wrap" data-video-wrap>
-          <video
-            class="film__video"
-            id="video2"
-            poster="assets/images/trailer-02-poster.jpg"
-            preload="none"
-            playsinline
-            controls
-            data-src="assets/videos/trailer-02.mp4">
-            <source data-src="assets/videos/trailer-02.mp4" type="video/mp4">
-            Your browser does not support embedded video. <a href="assets/videos/trailer-02.mp4">Download the film</a>.
-          </video>
-          <button class="film__play" type="button" data-play-button aria-label="Play the reception film">
-            <img src="assets/icons/play.svg" alt="" width="72" height="72">
-          </button>
+          <iframe
+            frameborder="0"
+            id="pictimeIntegration"
+            allowfullscreen="true"
+            allowtransparency="true"
+            class="PTslideshow6a37afd8da18ce7dacc734bd PTIntegratedFrame film__embed"
+            src="https://meheershah.pic-time.com/-radhika--taj/slideshow/6a37afd8da18ce7dacc734bd?slideshowview=AAAAAAMAAACw-ZHhK4DMA4aowMHhSUX1vrbCZ_FEfs0jTIUM4-geUQyPjbtqi14Y47csL1i7mNO1yJcRnofajdgSfoxu8DiuR_E8mWvLgXC7HvujLDWxug,,&amp;transparentbg=true"
+            title="Radhika and Taj wedding reception photographs"></iframe>
         </div>
       </div>
       <p class="film__caption" data-reveal>The Reception — North Mymms Park, June 2026</p>
@@ -372,6 +366,7 @@
     <p class="site-footer__made">Made with love, for us.</p>
   </footer>
 
+  <script src="https://embedding.pic-time.com/pictures/scripts/compiled/artgalleryembed.js"></script>
   <script src="script.js" defer></script>
 </body>
 </html>
