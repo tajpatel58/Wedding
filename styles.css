@@ -52,6 +52,7 @@ blockquote { quotes: none; }
   --charcoal:   #232323;
   --near-black: #111111;
   --gold:       #A8875B;
+  --hero-text:  #565655;
 
   --bg:         var(--warm-white);
   --ink:        var(--near-black);
@@ -300,7 +301,9 @@ section { position: relative; }
   position: relative;
   z-index: 2;
   text-align: center;
-  color: var(--warm-white);
+  color: var(--hero-text);
+  font-family: 'Cormorant Garamond', 'Iowan Old Style', Georgia, serif;
+  text-shadow: 0 2px 18px rgba(17,17,17,0.35);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -309,6 +312,7 @@ section { position: relative; }
 }
 .hero__eyebrow {
   font-size: var(--fs-eyebrow);
+  font-family: var(--font-body);
   letter-spacing: 0.28em;
   text-transform: uppercase;
   opacity: 0.8;
@@ -316,8 +320,9 @@ section { position: relative; }
 }
 .hero__title {
   font-size: var(--fs-hero);
-  font-weight: 500;
-  color: var(--warm-white);
+  font-weight: 400;
+  font-style: italic;
+  color: var(--hero-text);
 }
 .hero__title-mark { color: var(--gold); font-style: italic; padding-inline: 0.08em; }
 .hero__date {
@@ -325,6 +330,7 @@ section { position: relative; }
   font-size: var(--fs-body-lg);
   letter-spacing: 0.1em;
   font-weight: 300;
+  color: var(--hero-text);
   opacity: 0.85;
 }
 
@@ -491,7 +497,11 @@ section { position: relative; }
   background: rgba(17,17,17,0.4);
 }
 .break__quote {
-  position: relative;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: var(--space-md);
+  margin-inline: auto;
   z-index: 2;
   color: var(--warm-white);
   font-family: var(--font-display);
@@ -501,6 +511,7 @@ section { position: relative; }
   max-width: 20ch;
   line-height: 1.4;
   padding-inline: var(--space-sm);
+  width: min(calc(100% - (2 * var(--container-pad))), 40rem);
 }
 
 /* ---------- 12. GALLERY (EDITORIAL MASONRY) ---------- */
