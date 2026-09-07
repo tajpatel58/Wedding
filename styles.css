@@ -386,7 +386,7 @@ section { position: relative; }
   gap: var(--space-sm);
 }
 .film--dark { background: var(--near-black); color: var(--warm-white); }
-.film--pictime { background: var(--charcoal); color: var(--gold); }
+.film--pictime { background: var(--near-black); color: var(--gold); }
 
 .film__frame {
   width: 80vw;
@@ -397,35 +397,47 @@ section { position: relative; }
   position: relative;
   width: 100%;
   max-width: 100%;
-  aspect-ratio: 21 / 9;
+  aspect-ratio: 16 / 9;
   background: var(--near-black);
   overflow: hidden;
 }
 .film__video {
   width: 100%; height: 100%;
-  object-fit: cover;
+  object-fit: contain;
+  background: var(--near-black);
 }
 .film__embed {
   display: block;
   width: 100%;
   height: 100%;
+  aspect-ratio: 16 / 9;
   min-width: 0;
   border: 0;
 }
 .film--vimeo .film__video-wrap { aspect-ratio: 16 / 9; }
 .film--pictime .film__video-wrap { aspect-ratio: 16 / 9; }
 .film--vimeo .film__video-wrap { overflow: visible; }
-.film--pictime .film__frame { width: 64vw; }
-.film--pictime .film__video-wrap {
-  overflow: hidden;
-  background: var(--charcoal);
+.film--pictime .film__frame {
+  width: 64vw;
+  padding-inline: 0;
+  margin-inline: auto;
 }
+.film--pictime .film__video-wrap { overflow: visible; }
+.film--pictime .film__embed { pointer-events: auto; }
 .film--pictime .film__caption {
+  width: 100%;
+  max-width: 100%;
+}
+.film__caption--pictime {
+  display: block;
+  align-self: center;
   width: 64vw;
   max-width: 64vw;
   margin-inline: auto;
   position: relative;
-  z-index: 1;
+  z-index: auto;
+  margin-top: calc(var(--space-sm) + 100px);
+  pointer-events: none;
 }
 .film__video::-webkit-media-controls { opacity: 0; transition: opacity var(--dur-fast); }
 .film__video[data-playing="true"]::-webkit-media-controls { opacity: 1; }
@@ -829,7 +841,9 @@ section { position: relative; }
   .film { padding: var(--space-lg) 0; gap: var(--space-xs); }
   .film__frame,
   .film--pictime .film__frame { width: 100%; padding-inline: var(--space-xs); }
-  .film--pictime .film__caption { width: 100%; max-width: calc(100% - (2 * var(--container-pad))); }
+  .film--pictime .film__frame { padding-inline: 0; }
+  .film--pictime .film__caption,
+  .film__caption--pictime { width: 100%; max-width: calc(100% - (2 * var(--container-pad))); }
   .film__video-wrap { aspect-ratio: 4 / 5; }
   .film--vimeo .film__video-wrap { aspect-ratio: 16 / 9; }
   .film--pictime .film__video-wrap { aspect-ratio: 16 / 9; }
