@@ -793,6 +793,7 @@ section { position: relative; }
   letter-spacing: 0.12em;
   text-transform: uppercase;
   opacity: 0.82;
+  margin-top: 75px;
 }
 .closing__signature {
   font-family: 'Cormorant Garamond', 'Iowan Old Style', Georgia, serif;
@@ -800,7 +801,7 @@ section { position: relative; }
   font-style: italic;
   letter-spacing: 0.03em;
   color: var(--gold);
-  margin-top: var(--space-xs);
+  margin-top: 80px;
 }
 
 .site-footer {
